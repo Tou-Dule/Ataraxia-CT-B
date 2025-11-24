@@ -1,0 +1,6 @@
+- [x] Combine all HTML content into index.html as a single-page site
+- [x] Update navigation to use internal anchors (#home, #members, #about, #profile1, etc.)
+- [x] Add sections for home (gallery), members (list), about (social links), and individual profiles
+- [x] Ensure all modals have unique IDs and work correctly
+- [x] Test the combined page in browser
+- [ ] Optionally delete separate HTML files after verification

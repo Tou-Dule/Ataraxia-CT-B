@@ -1,0 +1,578 @@
+/* ===== RESET DASAR ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+*:focus,
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  border: none !important;
+}
+
+/* ===== BODY UTAMA ===== */
+body {
+  font-family: "Orbitron", sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body.background-overlay {
+  background: url("uss.jpg") center center / cover no-repeat fixed;
+}
+
+body.background-overlay::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 20px;
+  gap: 15px;
+  border-radius: 40px;
+}
+
+header > * {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 6px 16px;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  display: inline-block;
+  box-shadow: 0 0 6px #fff;
+  white-space: nowrap;
+}
+
+header h1 {
+  font-size: 15px;
+  color: #fff;
+  border-radius: 40px;
+  padding: 6px 16px;
+  display: inline-block;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.global-nav a {
+  font-size: 0.6rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 100px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.global-nav a:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 8px #fff, 0 0 15px #fff;
+}
+
+/* ===== INFORMASAUN CONTAINER ===== */
+.informasaun-container {
+  max-width: 600px;
+  margin: 20px auto 60px;
+  padding: 20px;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+}
+
+.informasaun-container h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.informasaun-container h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.informasaun-container li {
+  list-style: none;
+  margin-top: 0.5rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ===== GALERI FOTO DENGAN RESPONSIVE MODE TANPA ZOOM ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* default 4 kolom */
+  gap: 40rpx; /* jarak antar item */
+  justify-content: center; /* pastikan grid berada di tengah */
+  align-items: center;
+  margin-top: 40px;
+  transition: all 0.3s ease-in-out;
+}
+
+.gallery-item {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+.gallery-item:hover img {
+  filter: grayscale(0%);
+}
+
+.gallery-item:hover {
+  box-shadow: 0 0 20px white;
+  transform: translateY(-5px);
+}
+
+/* ===== RESPONSIVE UNTUK MODE POTRAIT ===== */
+@media (orientation: portrait) {
+  .informasaun-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .gallery-item {
+    width: 150px;
+    height: 150px;
+    border-radius: 30px;
+  }
+}
+
+/* ===== RESPONSIVE UNTUK MODE LANDSCAPE ===== */
+@media (orientation: landscape) {
+  .gallery {
+    grid-template-columns: repeat(6, 1fr); /* 6 kolom */
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .gallery-item {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+  }
+}
+
+/* ===== BIO SECTION ===== */
+.bio {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 90%;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+}
+
+.bio h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.bio h3 {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.bio img {
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* ===== SISWA LIST ===== */
+main.siswa {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main.siswa ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 40px;
+  list-style: none;
+  margin-top: 25px; /* tambahan jarak dari header ke kotak foto */
+}
+
+main.siswa li {
+  background-color: transparent;
+  padding: 35px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+main.siswa li:hover {
+  box-shadow: 0 0 20px 5px #ffffff;
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+.lingkaran,
+.foto-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 0;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lingkaran:hover,
+.foto-box:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px 5px #ffffff;
+}
+
+.nama-siswa {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+}
+
+.foto-box {
+  display: inline-block;
+  overflow: hidden;
+  background-color: #000000;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.foto-box:hover {
+  background-color: #000;
+  box-shadow: 0 0 20px 5px #fff;
+}
+
+/* ===== MODAL ZOOM GAMBAR ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal img {
+  max-width: 90vw;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #fff;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: rgb(246, 5, 5);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ===== SISWA PROFILE BACKGROUND ===== */
+[class^="cipri"],
+[class^="alan"],
+[class^="jose"],
+[class^="glif"],
+[class^="brill"],
+[class^="clau"],
+[class^="carol"],
+[class^="asir"],
+[class^="nata"],
+[class^="rivan"],
+[class^="melch"],
+[class^="anic"],
+[class^="fran"] {
+  position: relative;
+}
+
+[class^="jose"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("1jose.jpg");
+}
+[class^="cipri"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("2cipri.jpg");
+}
+[class^="alan"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("3alan.jpg");
+}
+[class^="glif"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("4glif.jpg");
+}
+[class^="brill"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("5brill.jpg");
+}
+[class^="nata"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("6nata.jpg");
+}
+[class^="asir"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("7asir.jpg");
+}
+[class^="anic"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("8anic.jpg");
+}
+[class^="clau"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("9clau.jpg");
+}
+[class^="rivan"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("10rivan.jpg");
+}
+[class^="carol"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("11carol.jpg");
+}
+[class^="melch"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("12melch.jpg");
+}
+[class^="fran"]::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("13fran.jpg");
+}
+
+[class^="cipri"]::before,
+[class^="jose"]::before,
+[class^="alan"]::before,
+[class^="glif"]::before,
+[class^="brill"]::before,
+[class^="nata"]::before,
+[class^="asir"]::before,
+[class^="anic"]::before,
+[class^="clau"]::before,
+[class^="carol"]::before,
+[class^="rivan"]::before,
+[class^="melch"]::before,
+[class^="fran"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===== ABOUT US SOCIAL MEDIA ===== */
+.about-us .social-links a:focus {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+  box-shadow: 0 0 10px #fff;
+}
+
+.about-us h3 {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+}
+.about-us .social-links a {
+  position: relative;
+  margin-top: 20px;
+  gap: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  border-radius: 13px;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px #000000;
+  margin-right: 15px;
+}
+
+.about-us .social-links a:hover,
+.about-us .social-links a:focus {
+  color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 12px 3px #fff;
+  background-color: transparent;
+}
+
+/* Remove global overrides that kill focus effects */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px 2px #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  header {
+    padding: 8px 15px;
+    gap: 10px;
+  }
+  header h2 {
+    font-size: 9rem;
+  }
+  .global-nav a {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .informasaun-container {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+
+  main.siswa ul {
+    gap: 20px;
+    padding: 20px 10px;
+    margin-top: 25px;
+  }
+
+  main.siswa li {
+    padding: 20px;
+  }
+
+  .bio {
+    width: 95%;
+  }
+}
+
+/* Landscape kecil (misal tablet) */
+@media (max-width: 800px) and (orientation: landscape) {
+  .informasaun-container {
+    padding: 15px 20px;
+    font-size: 19px;
+  }
+
+  main.siswa ul {
+    gap: 30px;
+    padding: 30px 15px;
+    margin-top: 25px;
+  }
+}
+
+/* Landscape sangat kecil (handphone di landscape) */
+@media (max-width: 480px) and (orientation: landscape) {
+  .informasaun-container {
+    font-size: 16px;
+    padding: 10px 10px;
+  }
+}
+
+/* Hilangkan outline biru saat klik/fokus */
+:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Kalau kamu mau tetap kasih efek fokus tapi bukan kotak biru, contoh: */
+a:focus,
+button:focus,
+input:focus {
+  outline: none;
+  box-shadow: 0 0 8px 2px #fff; /* efek neon putih contoh */
+}
